@@ -80,21 +80,20 @@ WSGI_APPLICATION = 'kinoteatr.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': "adminbd",
-        'USER' : 'admin',
-        'PASSWORD' : 'admin',
-        'HOST' : 'localhost',
-        'PORT' : '5432',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': "adminbd",
+#         'USER' : 'admin',
+#         'PASSWORD' : 'admin',
+#         'HOST' : 'localhost',
+#         'PORT' : '5432',
+#     }
+# }
 
 import django_heroku
 import dj_database_url
-db_form_env = dj_database_url.config(conn_max_age=600, ssl_require=True)
-DATABASES = ['default'].update(db_form_env)
+DATABASES = {'default' : dj_database_url.config(conn_max_age=600, ssl_require=True)}
 
 AUTHENTICATION_BACKENDS = (
     # 'social_core.backends.open_id.OpenIdAuth',
