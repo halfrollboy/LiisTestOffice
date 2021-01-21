@@ -1,9 +1,9 @@
 from pathlib import Path
+
 # , os, subprocess
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -15,7 +15,6 @@ SECRET_KEY = 'p8^y75$3-$vzenfak)@pe*h7(b#p#&d(&wjj^w##t#4d1%91f0'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -63,7 +62,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'office.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
@@ -71,16 +69,16 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': "liis",
-        'USER' : 'admin',
-        'PASSWORD' : 'admin',
-        'HOST' : 'localhost',
-        'PORT' : '5432',
+        'USER': 'admin',
+        'PASSWORD': 'admin',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
-#import django_heroku
-#import dj_database_url
-#DATABASES = {'default': dj_database_url.config(conn_max_age=600, ssl_require=True)}
+# import django_heroku
+# import dj_database_url
+# DATABASES = {'default': dj_database_url.config(conn_max_age=600, ssl_require=True)}
 
 AUTHENTICATION_BACKENDS = (
     # 'social_core.backends.open_id.OpenIdAuth',
@@ -110,7 +108,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -124,12 +121,10 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
 
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
@@ -140,7 +135,7 @@ REST_FRAMEWORK = {
     )
 }
 
-SOCIAL_AUTH_POSTGRES_JSONFIELD =True
+SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 
 SOCIAL_AUTH_GITHUB_KEY = 'c49a83decba61fd801e9'
 SOCIAL_AUTH_GITHUB_SECRET = 'e3c8310ba4a5a473604afc2bbfff26969e9d1a39'

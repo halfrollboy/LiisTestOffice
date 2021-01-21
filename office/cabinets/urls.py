@@ -3,7 +3,7 @@ from rest_framework.routers import SimpleRouter
 from cabinets.views import SeatViewSet, UserReservationsViewSet, CabinetViewSet
 from django.urls import path, include
 
-app_name = 'cabinets'
+app_name = 'cabinet'
 
 router = SimpleRouter()
 router.register(r'seats', SeatViewSet)

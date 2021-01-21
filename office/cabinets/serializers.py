@@ -20,7 +20,7 @@ class UserSerializer(ModelSerializer):
 
 
 class SeatSerializer(ModelSerializer):
-    cabinet = CabinetSerializer(many=True, read_only=True)
+    cabinet = CabinetSerializer().data
 
     class Meta:
         model = Seat
@@ -28,18 +28,18 @@ class SeatSerializer(ModelSerializer):
 
 
 class ReservationSerializer(ModelSerializer):
-    owner = UserSerializer(many=True, read_only=True)
-    seat = SeatSerializer(many=True, read_only=True)
+    # owner = UserSerializer()
+    # seat = SeatSerializer()
 
     class Meta:
         model = Reservation
-        fields = ['datetime_from', 'datetime_to', 'owner', 'seat']
+        fields = '__all__'
 
 
 class SeatsSerializer(ModelSerializer):
-    reservation_time = ReservationSerializer(many=True, read_only=True)
-    cabinet = CabinetSerializer(many=True)
+    # reservation_time = ReservationSerializer()
+    cabinet = CabinetSerializer()
 
     class Meta:
         model = Seat
-        fields = ['id', 'cabinet', 'reservation_time']
+        fields = ['cabinet']

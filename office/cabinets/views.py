@@ -14,7 +14,7 @@ class SeatViewSet(ModelViewSet):
     queryset = Seat.objects.all()
     serializer_class = SeatsSerializer
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
-    permission_classes = [IsOwnerOrReadOnly]
+    # permission_classes = [IsOwnerOrReadOnly]
     filter_fields = ['cabinet', 'reservation_time']
     search_fields = ['cabinet']
 

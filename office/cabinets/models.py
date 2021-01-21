@@ -12,10 +12,9 @@ class Cabinet(models.Model):
 
 class Seat(models.Model):
     cabinet = models.ForeignKey(Cabinet, on_delete=models.CASCADE, related_name='cabinet_seat')
-    reservation_time = models.ManyToManyField(User, through='Reservation', related_name='seat')
 
     def __str__(self):
-        return f'Кресто id{self.id}: в кабинете № "{self.cabinet.name}"'
+        return f'Место id{self.id}: в кабинете № "{self.cabinet.name}"'
 
 
 class Reservation(models.Model):

@@ -5,6 +5,9 @@ from rest_framework import status
 from rest_framework.test import APITestCase
 from django.contrib.auth.models import User
 from datetime import datetime, timedelta
+
+
+
 from cabinets.models import Cabinet, Seat, Reservation
 from cabinets.serializers import CabinetSerializer, SeatsSerializer
 
@@ -24,17 +27,19 @@ class ApiTestCase(APITestCase):
                                                     , owner=self.user, seat=self.seat_2)
 
     def test_get_cabinets(self):
-        """Тест на получение данных"""
-        url = 'http://127.0.0.1:8000/api/cabinet-list' #почему-то не работает reverse
+        """Тест на получение данных кабинета"""
+        url = reverse('api:cabinet-list')
         response = self.client.get(url)
         print(response)
         serializer_data = CabinetSerializer([ self.cabinet_1, self.cabinet_2], many=True).data
+        print(response.data)
+        print(serializer_data)
         self.assertEqual(status.HTTP_200_OK, response.status_code)
         self.assertEqual(serializer_data, response.data)
 
     def test_get_seats(self):
-        """Тест на получение данных"""
-        url = reverse('seat-list')
+        """Тест на получение данных мест"""
+        url = reverse('api:seat-list')
         response = self.client.get(url)
         serializer_data = SeatsSerializer([self.seat_1, self.seat_2, self.seat_3], many=True).data
         self.assertEqual(status.HTTP_200_OK, response.status_code)
